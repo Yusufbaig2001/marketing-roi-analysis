@@ -66,7 +66,7 @@ Single table - campaigns:
 
 ## 📊 Power BI Dashboard
 
-![Executive Overview](powerbi_dashboard/page1_executive.png)
+![Executive Overview](powerbi_dashboard/page1_campaigns.png)
 
 An interactive 3-page dashboard built on this dataset.
 
