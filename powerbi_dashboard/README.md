@@ -5,7 +5,7 @@ Interactive 3-page dashboard analyzing digital marketing campaign performance ac
 ## 📊 Dashboard Pages
 
 ### Page 1 — Executive Overview
-![Executive Overview](page1_executive.png)
+![Executive Overview](page1_campaigns.png)
 
 **Key metrics:**
 - Total Spend: ₹221K INR
@@ -19,7 +19,7 @@ Interactive 3-page dashboard analyzing digital marketing campaign performance ac
 ---
 
 ### Page 2 — Platform Deep Dive
-![Platform Deep Dive](page2_platform.png)
+![Platform Deep Dive](page2_campaigns.png)
 
 **Key insights:**
 - IndiaMART delivers the highest ROAS (17.85) but also the highest cost per lead.
@@ -52,9 +52,9 @@ Interactive 3-page dashboard analyzing digital marketing campaign performance ac
 
 | File | Description |
 |------|-------------|
-| `marketing_dashboard.pbix` | Source Power BI file |
-| `page1_executive.png` | Executive Overview screenshot |
-| `page2_platform.png` | Platform Deep Dive screenshot |
+| `Dashboards.pbix` | Source Power BI file |
+| `page1_campaigns.png` | Executive Overview screenshot |
+| `page2_campaigns.png` | Platform Deep Dive screenshot |
 | `page3_campaigns.png` | Campaign Efficiency screenshot |
 
 ## 🔍 Key DAX Measures
@@ -79,4 +79,3 @@ Yusuf Baig — Aspiring Data Analyst | Open to roles in Dubai, UAE
 LinkedIn: yusuf-baig-783906210
 
 GitHub: @Yusufbaig2001
-
