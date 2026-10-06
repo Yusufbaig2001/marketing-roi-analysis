@@ -64,6 +64,24 @@ Single table - campaigns:
 2. Run 01_database_setup.sql to create the database and tables.
 3. Run 02_analysis_queries.sql to execute all analyses.
 
+## 📊 Power BI Dashboard
+
+![Executive Overview](powerbi_dashboard/page1_executive.png)
+
+An interactive 3-page dashboard built on this dataset.
+
+**Pages:**
+- **Executive Overview** — KPIs, ROAS by platform, campaign performance
+- **Platform Deep Dive** — Platform comparison, conversion funnel, monthly trends
+- **Campaign Efficiency** — Performance categories, budget recommendations
+
+**Built with:** Power BI Desktop, DAX, Power Query
+
+📂 [View the full dashboard documentation →](powerbi_dashboard/README.md)
+
+---
+
+
 ## 👤 Author
 
 Yusuf Baig
