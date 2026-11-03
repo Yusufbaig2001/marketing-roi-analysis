@@ -1,113 +1,190 @@
-# Marketing Campaign ROI Analysis
+# Marketing Campaign Performance & ROI Analysis
 
-SQL and Power BI analysis of 10 digital marketing campaigns across Facebook, Instagram, IndiaMART and Google. The project calculates CPL, CPA, ROAS and ROI, compares platforms, and turns the results into budget recommendations.
+An end-to-end marketing analytics project using **MySQL and Power BI** to evaluate 10 digital marketing campaigns across Facebook, Instagram, Google, and IndiaMART.
 
-**Headline finding:** IndiaMART delivered the best return (ROAS 17.85) at the lowest cost per lead (₹120), while the three weakest campaigns (Spring Discount, Retargeting, Premium Doors Ad) each cost over ₹150 per lead.
+The project explores campaign efficiency, lead generation, conversion performance, platform comparisons, and return on ad spend (ROAS), then translates the findings into budget-allocation recommendations.
 
-> **Data note:** the dataset is a small sample (10 campaigns, ₹221K spend) modelled on campaigns I ran at a UPVC manufacturer. Figures are illustrative, and the very high ROAS and ROI values are a feature of the sample data, not real results.
+> **Dataset disclaimer:** This project uses illustrative sample data modelled around a UPVC doors and windows business context. The figures are not verified company financial results or proof of actual campaign performance.
 
-## 📊 Power BI Dashboard
+## Dashboard Preview
 
-![Executive Overview](powerbi_dashboard/page1_campaigns.png)
+![Marketing Campaign Executive Overview](powerbi_dashboard/page1_campaigns.png)
 
-A 3-page interactive dashboard built on this dataset:
+The Power BI dashboard contains three pages:
 
-- **Executive Overview**: KPIs, ROAS by platform, campaign performance
-- **Platform Deep Dive**: platform comparison, conversion funnel, monthly trends
-- **Campaign Efficiency**: performance categories, budget recommendations
+1. **Executive Overview** – Overall KPIs, campaign performance, spend and revenue.
+2. **Platform Deep Dive** – Platform comparisons, lead conversion and campaign-start-month analysis.
+3. **Campaign Efficiency** – CPL classifications, campaign rankings and budget recommendations.
 
-**Built with:** Power BI Desktop, DAX, Power Query · 📂 [Full dashboard documentation →](powerbi_dashboard/README.md)
+Dashboard documentation and screenshots are available in the `powerbi_dashboard` folder.
 
----
+## Business Problem
 
-## 📋 Business Problem
+A UPVC doors and windows business needs to understand how its digital marketing campaigns perform across multiple advertising platforms.
 
-A UPVC manufacturer was running digital campaigns on Facebook, Instagram, IndiaMART and Google but had no clear view of which platforms gave the best return on ad spend. The business needed to find its best campaigns and cut the weakest.
+The analysis focuses on questions such as:
 
-## 🎯 Objectives
+- Which platform generates the most revenue relative to advertising spend?
+- Which campaigns generate leads at a lower cost?
+- Which campaigns convert leads into customers more effectively?
+- How do platforms compare in terms of campaign efficiency?
+- Where could the business review or reallocate its marketing budget?
 
-- Calculate Cost Per Lead (CPL), Cost Per Acquisition (CPA), ROAS and ROI %
-- Compare performance across platforms
-- Identify the best and worst campaigns
-- Analyse the funnel: impressions, clicks, leads, conversions
-- Recommend budget changes based on ROAS
-- Track month-over-month revenue
+## Project Objectives
 
-## 🛠️ Tools Used
+- Calculate Cost Per Lead (CPL) and Cost Per Acquisition (CPA).
+- Calculate Return on Ad Spend (ROAS).
+- Compare marketing performance across platforms.
+- Identify high- and low-performing campaigns.
+- Analyse the impressions-to-conversions funnel.
+- Evaluate campaign revenue contribution.
+- Develop rule-based budget recommendations.
 
-- **MySQL**: data storage and 10 analysis queries
-- **Power BI**, **DAX** and **Power Query**: interactive dashboard
+## Tools & Technologies
 
-## 🗄️ Database Schema
+| Tool | Application |
+|---|---|
+| MySQL | Data storage, validation and analysis |
+| Power BI | Interactive dashboard |
+| DAX | Measures and KPI calculations |
+| Power Query | Data preparation and transformation |
 
-Single table `campaigns`: campaign_id, campaign_name, platform, start_date, end_date, spend, impressions, clicks, leads, conversions, revenue
+## Dataset Overview
 
-## 🔍 Key SQL Techniques Used
+The dataset contains 10 illustrative marketing campaigns.
 
-- Aggregations: SUM, COUNT, AVG, ROUND
-- NULL handling: NULLIF to prevent division by zero
-- Window functions: RANK, LAG
-- CTEs for multi-step analysis
-- CASE WHEN for efficiency ratings and budget recommendations
-- Date functions: DATE_FORMAT for monthly grouping
+**Database:** `marketing_db`
 
-## 📐 Metrics Calculated
+**Table:** `campaigns`
+
+| Column | Description |
+|---|---|
+| campaign_id | Unique campaign identifier |
+| campaign_name | Campaign name |
+| platform | Advertising platform |
+| start_date | Campaign start date |
+| end_date | Campaign end date |
+| spend | Advertising expenditure |
+| impressions | Total ad impressions |
+| clicks | Total clicks |
+| leads | Leads generated |
+| conversions | Recorded conversions |
+| revenue | Revenue attributed to the campaign |
+
+**Platforms included:** Facebook, Instagram, Google and IndiaMART.
+
+## Key Metrics
 
 | Metric | Formula | Purpose |
-| --- | --- | --- |
-| CPL | Spend / Leads | Cost efficiency of lead generation |
-| CPA | Spend / Conversions | Cost to acquire a paying customer |
-| ROAS | Revenue / Spend | Return on ad spend |
-| ROI % | (Revenue - Spend) / Spend × 100 | Overall profitability |
-| CTR | Clicks / Impressions × 100 | Ad engagement |
-| Lead-to-Conversion % | Conversions / Leads × 100 | Sales team effectiveness |
+|---|---|---|
+| CPL | Spend / Leads | Cost of generating a lead |
+| CPA | Spend / Conversions | Cost per recorded conversion |
+| ROAS | Revenue / Spend | Revenue generated per unit of ad spend |
+| CTR | Clicks / Impressions × 100 | Click-through rate |
+| Click-to-Lead Rate | Leads / Clicks × 100 | Lead generation efficiency |
+| Lead-to-Conversion Rate | Conversions / Leads × 100 | Conversion efficiency |
 
-## 📊 Results by Platform
+**Financial interpretation:** The project also calculates `(Revenue − Ad Spend) / Ad Spend × 100`. This is a revenue-versus-ad-spend measure, not net profit ROI, because product costs, salaries and other operating expenses are not included.
 
-| Platform | Spend | Leads | Conversions | Revenue | ROAS | CPL |
-| --- | --- | --- | --- | --- | --- | --- |
-| IndiaMART | ₹65,000 | 540 | 193 | ₹1,160,000 | 17.85 | ₹120.4 |
-| Google | ₹36,000 | 250 | 97 | ₹485,000 | 13.47 | ₹144.0 |
-| Facebook | ₹61,000 | 425 | 175 | ₹805,000 | 13.20 | ₹143.5 |
-| Instagram | ₹59,000 | 410 | 165 | ₹760,000 | 12.88 | ₹143.9 |
-| **Total** | **₹221,000** | **1,625** | **630** | **₹3.21M** | **14.52** | |
+## Key Findings
 
-## 🔍 Key Insights
+The following results are calculated from the illustrative sample dataset.
 
-- **IndiaMART** earned 36% of revenue from 29% of spend, with the best ROAS (17.85) and the lowest CPL (₹120)
-- **Dealer Network Ads** (IndiaMART) has the highest campaign ROAS (18.29)
-- **Facebook, Instagram and Google** have almost the same CPL (₹143–144), so ROAS separates them: Google 13.47, Facebook 13.20, Instagram 12.88
-- **Facebook** converts the most leads (41% of leads convert, vs 36% for IndiaMART), but IndiaMART earns more revenue per conversion
-- **7 of 10 campaigns** are "Good" (CPL ₹100–150) and **3 are "Poor"** (CPL over ₹150): Premium Doors Ad, Retargeting Campaign and Spring Discount
-- **Spring Discount** (Facebook) is the worst campaign, with ROAS 8.06 and CPL ₹189
+### 1. Platform Performance
 
-## 💡 Budget Recommendations
+| Platform | Spend | Revenue | Leads | ROAS | Weighted CPL |
+|---|---:|---:|---:|---:|---:|
+| IndiaMART | ₹65,000 | ₹11,60,000 | 540 | 17.85 | ₹120.37 |
+| Google | ₹36,000 | ₹4,85,000 | 250 | 13.47 | ₹144.00 |
+| Facebook | ₹61,000 | ₹8,05,000 | 425 | 13.20 | ₹143.53 |
+| Instagram | ₹59,000 | ₹7,60,000 | 410 | 12.88 | ₹143.90 |
+| **Total** | **₹2,21,000** | **₹32,10,000** | **1,625** | **14.52** | **₹136.00** |
 
-Rule used in DAX: ROAS above 15 = increase, 10 to 15 = maintain, below 10 = reduce.
+### 2. Campaign-Level Findings
 
-- **Increase** IndiaMART budget (ROAS 17.85)
-- **Maintain** Google, Facebook and Instagram
-- **Pause or optimise** the three Poor campaigns, starting with Spring Discount
+- **Dealer Network Ads (IndiaMART)** has the highest campaign ROAS at approximately 18.29.
+- **B2B Bulk Orders (IndiaMART)** follows with a ROAS of approximately 17.33.
+- **Spring Discount (Facebook)** has the highest CPL at approximately ₹189.47.
+- IndiaMART has the lowest weighted CPL among the four platforms in this sample.
 
-## 📁 Repository Structure
+### 3. Campaign Efficiency
 
-```
+Using illustrative CPL thresholds:
+
+- Excellent: CPL below ₹100
+- Good: CPL from ₹100 to ₹150
+- Average: CPL above ₹150 and up to ₹200
+- Poor: CPL above ₹200
+
+The SQL analysis uses a slightly different classification for its labels: above ₹150 to ₹200 is Average, and above ₹200 is Poor. The dashboard's categories should use the same thresholds before presenting a combined result.
+
+## Business Recommendations
+
+Based on the sample results:
+
+1. **Evaluate IndiaMART:** Its sample ROAS and weighted CPL are strongest. Further testing could assess whether additional budget maintains performance.
+2. **Review Spring Discount:** Its CPL is relatively high compared with the other campaigns. Investigate audience targeting and creative performance.
+3. **Compare Google, Facebook and Instagram:** Their weighted CPL values are similar, so conversion quality and ROAS can help guide further testing.
+4. **Track the complete funnel:** Monitor impressions, clicks, leads and conversions to identify where potential customers drop off.
+5. **Validate profitability before reallocating budget:** ROAS alone does not account for product costs, margins or operating expenses.
+
+These are exploratory recommendations based on sample data, not proven outcomes.
+
+## SQL Concepts Demonstrated
+
+- SELECT, WHERE and ORDER BY
+- Aggregate functions: SUM, COUNT
+- GROUP BY and HAVING
+- CASE WHEN conditional classification
+- NULLIF for safe division
+- Common Table Expressions (CTEs)
+- Window functions: RANK and LAG
+- Date functions and monthly grouping
+- Subqueries
+- Business KPI calculations
+
+## Repository Structure
+
+```text
 marketing-roi-analysis/
-├── 01_database_setup.sql     # Schema and sample campaign data
-├── 02_analysis_queries.sql   # All 10 analysis queries
-├── powerbi_dashboard/        # Dashboard screenshots and documentation
-└── README.md
+│
+├── 01_database_setup.sql
+├── 02_analysis_queries.sql
+├── README.md
+│
+└── powerbi_dashboard/
+    ├── Dashboards.pbix
+    ├── page1_campaigns.png
+    ├── page2_campaigns.png
+    ├── page3_campaigns.png
+    └── README.md
 ```
 
-## 🚀 How to Run
+## How to Run the Project
 
-1. Open MySQL Workbench.
-2. Run `01_database_setup.sql` to create the database and table.
-3. Run `02_analysis_queries.sql` to execute the analysis.
+1. Install MySQL 8.0 or later.
+2. Open MySQL Workbench.
+3. Run `01_database_setup.sql` to create the database, table and sample records.
+4. Run `02_analysis_queries.sql` to perform the analysis.
+5. Open `Dashboards.pbix` in Power BI Desktop to explore the dashboard.
 
-## 👤 Author
+## Limitations
 
-**Yusuf Baig**, Data Analyst | Open to roles in Dubai, UAE
+- The dataset contains only 10 illustrative campaigns.
+- Campaign revenue is provided as a campaign-level total, not daily revenue.
+- Monthly analysis groups campaigns by their start month; it does not represent actual monthly revenue recognition.
+- ROAS does not account for product costs or other operating expenses.
+- Budget thresholds are illustrative business rules, not universal marketing benchmarks.
+- The dataset does not include customer-level attribution or channel overlap.
 
-- LinkedIn: [yusuf-baig-783906210](https://www.linkedin.com/in/yusuf-baig-783906210/)
-- GitHub: [@Yusufbaig2001](https://github.com/Yusufbaig2001)
+## AI-Assisted Project Development
+
+AI tools, including ChatGPT, were used to support SQL query development, troubleshooting, explanations and documentation. The project is intended to demonstrate understanding of the analytical methods and the ability to interpret the outputs, rather than to claim that every query was independently authored.
+
+## Author
+
+**Yusuf Baig**  
+Aspiring Data Analyst | Open to opportunities in Dubai, UAE
+
+- [LinkedIn](https://www.linkedin.com/in/yusuf-baig-783906210/)
+- [GitHub](https://github.com/Yusufbaig2001)
