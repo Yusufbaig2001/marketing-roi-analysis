@@ -30,6 +30,8 @@ The analysis focuses on questions such as:
 - How do platforms compare in terms of campaign efficiency?
 - Where could the business review or reallocate its marketing budget?
 
+  > **Data note:** This project uses a sample dataset (included in `01_database_setup.sql`) structured like the campaigns of a UPVC manufacturing business.
+
 ## Project Objectives
 
 - Calculate Cost Per Lead (CPL) and Cost Per Acquisition (CPA).
@@ -183,8 +185,8 @@ AI tools, including ChatGPT, were used to support SQL query development, trouble
 
 ## Author
 
-**Yusuf Baig**  
-Aspiring Data Analyst | Open to opportunities in Dubai, UAE
+**Yusuf Baig** — Data Analyst | SQL · Power BI · Excel | Based in Dubai, UAE
+Data Analyst | Open to opportunities in Dubai, UAE
 
 - [LinkedIn](https://www.linkedin.com/in/yusuf-baig-783906210/)
 - [GitHub](https://github.com/Yusufbaig2001)
